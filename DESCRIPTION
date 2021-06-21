@@ -1,0 +1,15 @@
+Package: rfieldbook
+Title: Fieldbook Data Management functions
+Version: 0.2.1
+Authors@R: 
+    person(given = "Abraham Kipkosgei",
+           family = "Lagat",
+           role = c("aut", "cre"),
+           email = "abraham.lagat.k@gmail.com",
+           comment = c(ORCID = "0000-0003-0419-7499"))
+Description: Function to do various operations on data from IMIS Fieldbook software and its various components: inventories, nurseries, trials, seed preparations, import and stack files.
+License: MIT Licence
+Encoding: UTF-8
+LazyData: true
+Depends: readxl, plyr, dplyr, reshape2, uuid, svDialogs, xlsx, stringr
+RoxygenNote: 7.1.1
