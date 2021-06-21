@@ -1,9 +1,9 @@
 #' metadata
 #' @title Fieldbook data linkage and completeness function
 #' Function to to connect data in different fieldbook files: inventory, nurseries and trials
-#' @param inventories Directory path to the inventory file
-#' @param nurseries Directory path to nursery files
-#' @param trials Directory path to trial files
+#' @param inventories String for the path to the inventory file
+#' @param nurseries String for the path to nursery files
+#' @param trials String for the  path to trial files
 #' @keywords fieldbook, inventories, nurseries, trials, trial, nursery, inventory, breeder, breeding, cimmyt, cgiar, maize, stma
 #' @export
 

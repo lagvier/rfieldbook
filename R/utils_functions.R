@@ -1,7 +1,7 @@
 #' stem
 #' @title Common names
 #' A function to identify the longest name that is common in a list of paths, files or names
-#' @param nams The list of paths, files or names
+#' @param nams String list of paths, files or names
 #' @keywords Stem
 #' @export
 
@@ -21,7 +21,7 @@ stem = function(nams){
 #' commonDir
 #' @title The common location
 #' A function to determine the common location of a list of paths (files, directories or both)
-#' @param nams List of paths
+#' @param nams String list of paths
 #' @keywords location
 #' @export
 
@@ -47,6 +47,15 @@ commonDir = function(nams){
   return(rowT)
 }
 
+
+#' splitString
+#' @title Split a string
+#' A function to split a string using a given charater or string pattern
+#' @param string String to split
+#' @param pattern Character or string name that is used to split the string
+#' @param include Logical indicating whether to include include or remove the splitting character in the final split substrings
+#' @export
+
 splitString <- function(string, pattern, include = FALSE){
   x = str_split(string, pattern)[[1]]
   x = as.data.frame(cbind(
@@ -68,9 +77,9 @@ splitString <- function(string, pattern, include = FALSE){
 #' @title Replace nested brackets in a pedigree name
 #' A function to replace pairs of nested brackets (squire and open) to establish breeding generation in a pedigree
 #' @param x the pedigree or name string
-#' @param left The type of left bracket
-#' @param right The type of right bracket
-#' @param replacement symbol for the string between the left and right bracket
+#' @param left A character symbol for type of left bracket
+#' @param right A character symbol for the type of right bracket
+#' @param replacement String or symbol for replacing the string between the left and right bracket
 #' @keywords nomenclature
 #' @export
 
@@ -93,7 +102,7 @@ replaceNested <- function(x, left=NA, right=NA, replace = '??'){
 #' typeBreeding
 #' @title Check the level of
 #' A function to extract the level of crosses in a nomenclature
-#' @param stringx A string for name or pedigree
+#' @param stringx String for name or pedigree
 #' @keywords pedigree, breeding, nomenclature
 #' @export
 
@@ -125,7 +134,7 @@ typeBreeding = function(stringx){
 #' checkAnalysed
 #' @title Check the analysis status
 #' Function to determine if trial(s) has been analyzed - results sheet has any traits results
-#' @param dir Path to trial(s) files
+#' @param dir String for the path to trial(s) files
 #' @keywords trial, analysis
 #' @export
 
@@ -168,7 +177,7 @@ checkAnalysed <- function(dir){
 #' checkDataAvailable
 #' @title Check data availability status of trials
 #' A function to check if trial file(s) has any traits data in them
-#' @param dir Path to the location of the trial file(s)
+#' @param dir String for the path to the location of the trial file(s)
 #' @keywords trial, data
 #' @export
 
@@ -203,7 +212,7 @@ checkDataAvailable <- function(dir){
 #' importsPrepared
 #' @title Compare trial files and respective import files
 #' A function to check which files have respective import files
-#' @param dir Path to directory containing the trial files
+#' @param dir String for the path to directory containing the trial files
 #' @keywords import, trial
 #' @export
 
@@ -231,7 +240,7 @@ importsPrepared = function(dir){
 #' hasStocks
 #' @title Status of stocklist sheet in a nursery file
 #' A function to check if stockList has been generated
-#' @param nursery_file  Full path to the nursery file
+#' @param nursery_file String for the path to the nursery file
 #' @keywords nursery, stocklist, entrylist, list, stock, entry
 #' @export
 
@@ -269,8 +278,8 @@ hasStocks <- function(nursery_file){
 #'  @title Fieldbook first plot identification
 #' Function to identify the location of the first plot in a sheet of a trial or nursery
 #' @keywords fieldbook, inventories, nurseries, trials, trial, nursery, inventory, entry, stock, results
-#' @param file Full path to the trial or nursery file
-#' @param sheet The sheet of the file
+#' @param file String for the path to the trial or nursery file
+#' @param sheet String for the sheet of the file to check
 #' @export
 
 getFirstPlot <- function(file, sheet){
@@ -296,7 +305,7 @@ getFirstPlot <- function(file, sheet){
 #' fieldbookFile
 #' @title Identify the type of fieldbook file selected
 #' A function to determine the fieldbook file type: stack, import, trial, etc
-#' @param file Full path to an excel file
+#' @param file String for the path to an excel file
 #' @keywords fieldbook, trial, nursery, inventory, stack, import, summary, file
 #' @export
 
@@ -318,7 +327,7 @@ fieldbookFile = function(file){
 #' Mode
 #' @title identify most common
 #' A simple function to identify the most occurring category in data points
-#' @param x A vector of datapoints
+#' @param x String vector of datapoints
 #' @keywords Mode
 #' @export
 
