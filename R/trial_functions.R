@@ -173,3 +173,66 @@ correctTrialNames <- function(trialsRootFolder = NA){
     unlink(file.path(trialsRootFolder, x), recursive=TRUE)
   })
 }
+
+
+#' checkAnalyzed
+#' @title Analyzed trials
+#' Function to check if trial files are analyzed
+#' @param String for the directory containing the trial files
+#' @export
+
+checkAnalyzed = function(cdir){
+
+  # list files
+  files = list.files(dir, pattern = '.xls$', recursive = TRUE) %>%
+    sort()
+
+  data = lapply(files, function(file){
+    cat(file, "\n")
+    if(all(c('Fieldbook', 'Results', 'Master') %in% readxl::excel_sheets(file.path(dir, file)))){
+      sk = getFirstPlot(file.path(dir, file), sheet = "Results")
+      # get relevant columns
+      Cols = readxl::read_excel(file.path(dir, file), sheet = "Results") %>% names()
+      # Cols = c(grep('entr', Cols, ignore.case = T)[1],
+      #          grep('grainyield', Cols, ignore.case = T))
+      sp_cols = c(grep('^SelectionIndex$', Cols, ignore.case = T)+1,
+                  grep('^SelectionsMarked$', Cols, ignore.case = T)-1)
+
+      dat = read.xlsx2(file.path(dir, file), sheetName="Results", startRow=sk+1,
+                       as.data.frame=TRUE,colIndex = 1:sp_cols[2], header=FALSE)
+      names(dat) <- Cols[1:sp_cols[2]] # c("Entry", paste0("Yield_", c(1:(ncol(Cols)-1))))
+      dat = subset(dat, !is.na(as.numeric(Entry)))
+      sp_cols = c(grep('^entry$', names(dat), ignore.case = T), sp_cols)
+      dat = dat[, c(c(sp_cols[1], c(sp_cols[2]:sp_cols[3])))]
+
+      dat = melt(dat, id = 'Entry') %>%
+        subset(., !is.na(as.numeric(value)))
+
+      # consider trials with 20% results data analyzed
+      Status = ifelse(sum(duplicated(paste(dat$Entry, dat$variable)))>0,"Duplicated entries",
+                      ifelse(nrow(dat) > length(unique(dat$Entry)) * length(unique(dat$variable))*0.5, 'Analyzed',
+                             'Not analyzed'))
+
+    }else{
+      Status = 'Not trial'
+    }
+    da = as.data.frame(cbind(File = file, Status = Status))
+    return(da)
+  }) %>% do.call('rbind', .)
+
+  data = lapply(c('duplicates', 'unAnalyzed', 'analyzed'), function(group){
+
+    if(group == 'duplicates') df = subset(data, Status == 'Duplicated entries')
+    if(group == 'unAnalyzed') df = subset(data, Status != 'Analyzed')
+    if(group == 'analyzed') df = subset(data, Status == 'Analyzed')
+
+    return(df)
+  })
+
+  data = data[unlist(lapply(data, function(df) nrow(df) > 0))]
+
+  names(data) = unlist(lapply(data, function(df) unique(df$Status)))
+
+  return(data)
+}
+

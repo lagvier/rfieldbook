@@ -337,5 +337,41 @@ Mode <- function(x) {
   return(ux)
 }
 
+#' removeBulking
+#' @title identify fixed line
+#' A function to remove trailing `B` or `-` and `B*` to get a fixed line
+#' @param x String for the pedigree or designation of the germplasm
+#' @keywords germplasm, inventory, trial, fieldbook
+#' @export
+#'
+#
+removeBulking <- function(x){
+
+  x = unlist(strsplit(x, split = ''))
+
+  for(i in 1:length(x)){
+    if(x[length(x)] == '-' || toupper(x[length(x)]) == 'B')
+      x = x[-length(x)]
+
+
+    if(!is.na(as.numeric(x[length(x)])) && x[length(x)-1]=='*' &&
+       toupper(x[length(x)-2]) == 'B')
+      x = x[1:(length(x)-3)]
+
+    if(any(grepl("[*]", x))){
+      last_star = max(grep("[*]", x))
+      last_val = x[(last_star+1):length(x)]
+      last_valCollap = paste(last_val, collapse = '')
+
+      if(!is.na(as.numeric(last_valCollap)) & toupper(x[last_star-1]) == "B"){
+        x = x[1:(last_star-2)]
+      }
+    }
+  }
+
+  return(paste(as.character(x), collapse = ""))
+}
+
+
 
 
