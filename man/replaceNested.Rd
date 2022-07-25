@@ -10,11 +10,11 @@ replaceNested(x, left = NA, right = NA, replace = "??")
 \arguments{
 \item{x}{the pedigree or name string}
 
-\item{left}{The type of left bracket}
+\item{left}{A character symbol for type of left bracket}
 
-\item{right}{The type of right bracket}
+\item{right}{A character symbol for the type of right bracket}
 
-\item{replacement}{symbol for the string between the left and right bracket}
+\item{replacement}{String or symbol for replacing the string between the left and right bracket}
 }
 \description{
 replaceNested

@@ -8,7 +8,7 @@ A function to determine the fieldbook file type: stack, import, trial, etc}
 fieldbookFile(file)
 }
 \arguments{
-\item{file}{Full path to an excel file}
+\item{file}{String for the path to an excel file}
 }
 \description{
 fieldbookFile

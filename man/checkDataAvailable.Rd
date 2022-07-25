@@ -8,7 +8,7 @@ A function to check if trial file(s) has any traits data in them}
 checkDataAvailable(dir)
 }
 \arguments{
-\item{dir}{Path to the location of the trial file(s)}
+\item{dir}{String for the path to the location of the trial file(s)}
 }
 \description{
 checkDataAvailable

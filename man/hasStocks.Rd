@@ -8,7 +8,7 @@ A function to check if stockList has been generated}
 hasStocks(nursery_file)
 }
 \arguments{
-\item{nursery_file}{Full path to the nursery file}
+\item{nursery_file}{String for the path to the nursery file}
 }
 \description{
 hasStocks

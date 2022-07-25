@@ -5,10 +5,10 @@
 \title{Check the level of
 A function to extract the level of crosses in a nomenclature}
 \usage{
-typeBreeding(stringx)
+typeBreeding(instring)
 }
 \arguments{
-\item{stringx}{A string for name or pedigree}
+\item{instring}{String for name or pedigree}
 }
 \description{
 typeBreeding

@@ -8,7 +8,7 @@ A function to determine the common location of a list of paths (files, directori
 commonDir(nams)
 }
 \arguments{
-\item{nams}{List of paths}
+\item{nams}{String list of paths}
 }
 \description{
 commonDir

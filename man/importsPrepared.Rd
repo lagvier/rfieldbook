@@ -8,7 +8,7 @@ A function to check which files have respective import files}
 importsPrepared(dir)
 }
 \arguments{
-\item{dir}{Path to directory containing the trial files}
+\item{dir}{String for the path to directory containing the trial files}
 }
 \description{
 importsPrepared

@@ -102,34 +102,47 @@ replaceNested <- function(x, left=NA, right=NA, replace = '??'){
 #' typeBreeding
 #' @title Check the level of
 #' A function to extract the level of crosses in a nomenclature
-#' @param stringx String for name or pedigree
+#' @param instring String for name or pedigree
 #' @keywords pedigree, breeding, nomenclature
 #' @export
 
-typeBreeding = function(stringx){
-  stringx = as.character(stringx)
+
+# recreate names without brackets
+typeBreeding = function(instring){
+  instring = as.character(instring)
+  stringx = instring
   x = unlist(strsplit(stringx, ''))
+  replacedItems = c()
+
+  # check validity of the paired brackets
   if(!all(sum(grepl('\\(', x)) == sum(grepl('\\)', x)),
-      sum(grepl('\\[', x)) == sum(grepl('\\]', x))))
+          sum(grepl('\\[', x)) == sum(grepl('\\]', x))))
     stringx = 'Invalid nomenclature'
   else{
+    # remove open brackets
     while(grepl('\\(', stringx)){
       ki = stringr::str_extract_all(stringx, "\\([^()]+\\)")[[1]]
+      if(length(replacedItems) == 0) longestvals = length(ki)
       for(i in ki){
-        stringx = gsub(i, 'mimi_mdogo', stringx, fixed = TRUE)
+        stringx = gsub(i, 'itsReplaced', stringx, fixed = TRUE)
       }
+      replacedItems = c(replacedItems, list(ki))
     }
 
+    # remove open brackets
     while(grepl('\\[', stringx)){
       ki = stringr::str_extract_all(stringx, "\\[[^\\[\\]]*\\]")[[1]]
+      if(length(replacedItems) == 0) longestvals = length(ki)
       for(i in ki){
-        stringx = gsub(i, 'mimi_mdogo', stringx, fixed = TRUE)
+        stringx = gsub(i, 'itsReplaced', stringx, fixed = TRUE)
       }
+      replacedItems = c(replacedItems, list(ki))
     }
   }
 
-  return(stringx)
+  return(list(instring, stringx, replacedItems))
 }
+
 
 #' checkAnalysed
 #' @title Check the analysis status

@@ -8,7 +8,7 @@ Function to determine if trial(s) has been analyzed - results sheet has any trai
 checkAnalysed(dir)
 }
 \arguments{
-\item{dir}{Path to trial(s) files}
+\item{dir}{String for the path to trial(s) files}
 }
 \description{
 checkAnalysed

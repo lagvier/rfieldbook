@@ -9,9 +9,9 @@ Function to identify the location of the first plot in a sheet of a trial or nur
 getFirstPlot(file, sheet)
 }
 \arguments{
-\item{file}{Full path to the trial or nursery file}
+\item{file}{String for the path to the trial or nursery file}
 
-\item{sheet}{The sheet of the file}
+\item{sheet}{String for the sheet of the file to check}
 }
 \description{
 getFirstPlot

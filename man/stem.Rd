@@ -8,7 +8,7 @@ A function to identify the longest name that is common in a list of paths, files
 stem(nams)
 }
 \arguments{
-\item{nams}{The list of paths, files or names}
+\item{nams}{String list of paths, files or names}
 }
 \description{
 stem

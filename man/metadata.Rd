@@ -8,11 +8,11 @@ Function to to connect data in different fieldbook files: inventory, nurseries a
 metadata(inventories = NULL, nurseries = NULL, trials = NULL)
 }
 \arguments{
-\item{inventories}{Directory path to the inventory file}
+\item{inventories}{String for the path to the inventory file}
 
-\item{nurseries}{Directory path to nursery files}
+\item{nurseries}{String for the path to nursery files}
 
-\item{trials}{Directory path to trial files}
+\item{trials}{String for the  path to trial files}
 }
 \description{
 metadata

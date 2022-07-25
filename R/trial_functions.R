@@ -178,10 +178,10 @@ correctTrialNames <- function(trialsRootFolder = NA){
 #' checkAnalyzed
 #' @title Analyzed trials
 #' Function to check if trial files are analyzed
-#' @param String for the directory containing the trial files
+#' @param dir for the directory containing the trial files
 #' @export
 
-checkAnalyzed = function(cdir){
+checkAnalyzed = function(dir){
 
   # list files
   files = list.files(dir, pattern = '.xls$', recursive = TRUE) %>%
@@ -198,7 +198,7 @@ checkAnalyzed = function(cdir){
       sp_cols = c(grep('^SelectionIndex$', Cols, ignore.case = T)+1,
                   grep('^SelectionsMarked$', Cols, ignore.case = T)-1)
 
-      dat = read.xlsx2(file.path(dir, file), sheetName="Results", startRow=sk+1,
+      dat = xlsx::read.xlsx2(file.path(dir, file), sheetName="Results", startRow=sk+1,
                        as.data.frame=TRUE,colIndex = 1:sp_cols[2], header=FALSE)
       names(dat) <- Cols[1:sp_cols[2]] # c("Entry", paste0("Yield_", c(1:(ncol(Cols)-1))))
       dat = subset(dat, !is.na(as.numeric(Entry)))

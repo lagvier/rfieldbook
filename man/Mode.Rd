@@ -8,7 +8,7 @@ A simple function to identify the most occurring category in data points}
 Mode(x)
 }
 \arguments{
-\item{x}{A vector of datapoints}
+\item{x}{String vector of datapoints}
 }
 \description{
 Mode
