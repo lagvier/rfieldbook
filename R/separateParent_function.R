@@ -11,22 +11,31 @@ separateParent = function(pedigreeName){
 
   if(!is.null(breedResults[[3]])){
 
-    outNest = length(breedResults[[3]])
-    inNest =length(breedResults[[3]])
-    dMatrix = matrix("", nrow = outNest, ncol = inNest)
+    noIter = length(breedResults[[3]])
+    firstSplits =length(breedResults[[3]][[1]])
+    dMatrix = matrix("", nrow = noIter, ncol = firstSplits)
 
 
-    for(i in 1:outNest){
-      for(j in 1:inNest){
-        if(i == 1){
-          dMatrix[i,j] = breedResults[[3]][[i]][j]
+    for(i in 1:noIter){
+      for(j in 1:firstSplits){
+        if(i == noIter){ # replace last option in list 2
+
         }else{
-          ca= grep(gsub('itsReplaced', dMatrix[i-1,j], breedResults[[3]][[i]]),
-                   breedResults[[1]], fixed = TRUE)
-          if(length(ca) == 0){
-            dMatrix[i,j] = dMatrix[i-1,j]
+          if(i == 1){
+            dMatrix[i,j] = breedResults[[3]][[i]][j]
           }else{
-            dMatrix[i,j] = gsub('itsReplaced', dMatrix[i-1,j], breedResults[[3]][[i]])[min(ca)]
+            ca= grep(gsub('itsReplaced', dMatrix[i-1,j], breedResults[[3]][[i]]),
+                     breedResults[[1]], fixed = TRUE)
+            if(length(ca) == 0){
+              dMatrix[i,j] = dMatrix[i-1,j]
+            }else{
+              ls = unlist(strsplit(breedResults[[3]][[i]][j],'itsReplaced'))
+              if(length(ls) == firstSplits){
+                for(k in 1:length(ls)) dMatrix[i,j] =
+              }else{
+                dMatrix[i,j] = gsub('itsReplaced', dMatrix[i-1,j], breedResults[[3]][[i]])[min(ca)]
+              }
+            }
           }
         }
       }
@@ -36,11 +45,11 @@ separateParent = function(pedigreeName){
                 ifelse(grepl('&', breedResults[[2]]), '&',
                        ifelse(grepl('/', breedResults[[2]]), '/'," ")))
     y = unlist(strsplit(breedResults[[2]], sn))
-    for(r in 1:inNest){
+    for(r in 1:firstSplits){
       if(grepl('itsReplaced', y[1])) {
-        y[1] = gsub('itsReplaced', dMatrix[outNest, r], y[1])
+        y[1] = gsub('itsReplaced', dMatrix[noIter, r], y[1])
       }else{
-        y[2] = gsub('itsReplaced', dMatrix[outNest, r], y[2])
+        y[2] = gsub('itsReplaced', dMatrix[noIter, r], y[2])
       }
     }
   } else{
