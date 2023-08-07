@@ -1,0 +1,21 @@
+PLOT_ID,PA_X,PA_Y,FIELD_X,FIELD_Y,SITE ID,SITE,EXPERIMENT YEAR,SEASON CODE,EXPERIMENT,EXPERIMENT TYPE,EXPERIMENT DESIGN TYPE,ENTRY NO.,GERMPLASM NAME,ENTRY TYPE,REP,PLOT CODE,PLOT NO.,BLOCK NO,DESIGN X,DESIGN Y
+301814,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,6,CMLDEMO_6,test,1,101,1,1,1,1
+301815,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,1,CMLDEMO_1,test,1,102,2,1,2,1
+301816,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,7,CMLDEMO_7,test,1,103,3,2,3,1
+301817,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,2,CMLDEMO_2,test,1,104,4,2,4,1
+301818,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,5,CMLDEMO_5,test,1,105,5,3,5,1
+301819,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,10,CMLDEMO_10,check,1,106,6,3,6,1
+301820,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,8,CMLDEMO_8,test,1,107,7,4,7,1
+301821,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,3,CMLDEMO_3,test,1,108,8,4,8,1
+301822,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,9,CMLDEMO_9,check,1,109,9,5,9,1
+301823,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,4,CMLDEMO_4,test,1,110,10,5,10,1
+301824,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,8,CMLDEMO_8,test,2,201,11,6,10,2
+301825,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,2,CMLDEMO_2,test,2,202,12,6,9,2
+301826,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,1,CMLDEMO_1,test,2,203,13,7,8,2
+301827,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,7,CMLDEMO_7,test,2,204,14,7,7,2
+301828,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,4,CMLDEMO_4,test,2,205,15,8,6,2
+301829,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,10,CMLDEMO_10,check,2,206,16,8,5,2
+301830,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,5,CMLDEMO_5,test,2,207,17,9,4,2
+301831,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,6,CMLDEMO_6,test,2,208,18,9,3,2
+301832,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,9,CMLDEMO_9,check,2,209,19,10,2,2
+301833,,,,,1236,Agua Fria-Puebla,2023,B,DEMO_DATOS_23-08-07,Breeding Trial,Alpha-Lattice,3,CMLDEMO_3,test,2,210,20,10,1,2
